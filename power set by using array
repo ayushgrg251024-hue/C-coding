@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+void printPowerSet(int arr[], int n)
+{
+    int total = 1 << n;  
+
+    for(int i = 0; i < total; i++)
+    {
+        printf("{ ");
+
+        for(int j = 0; j < n; j++)
+        {
+            if(i & (1 << j))  
+            {
+                printf("%d ", arr[j]);
+            }
+        }
+
+        printf("}\n");
+    }
+}
+
+int main()
+{
+    int a[] = {10, 12, 15};
+    int b[] = {2, 3, 1, 8};
+
+    int sizeA = sizeof(a) / sizeof(a[0]);
+    int sizeB = sizeof(b) / sizeof(b[0]);
+
+    printf("Power set of array a:\n");
+    printPowerSet(a, sizeA);
+
+    printf("\nPower set of array b:\n");
+    printPowerSet(b, sizeB);
+
+    return 0;
+}
